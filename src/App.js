@@ -51,7 +51,7 @@ class BooksApp extends React.Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                       <li>
-                        <Book book={books.books[0]}/>
+                        <Book title={books.books[0].title} image={books.books[0].imageLinks.thumbnail} authors={books.books[0].authors}/>
                       </li>
                       <li>
                         <div className="book">
