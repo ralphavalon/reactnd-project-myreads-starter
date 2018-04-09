@@ -1,7 +1,7 @@
 import React from 'react'
 import Bookshelf from '../Bookshelf'
 
-class ListBooks extends React.Component {
+class ListBookshelves extends React.Component {
 
     render() {
         const { books, onAddBook } = this.props;
@@ -25,4 +25,4 @@ class ListBooks extends React.Component {
     }
 }
 
-export default ListBooks
+export default ListBookshelves
