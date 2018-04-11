@@ -1,17 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 class ListBooks extends React.Component {
-  static propTypes = {
-    onCloseSearch: PropTypes.func.isRequired
-  }
-
   render() {
-    const { onCloseSearch } = this.props;
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <a className="close-search" onClick={onCloseSearch}>Close</a>
+          <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
             {/*
                 NOTES: The search from BooksAPI is limited to a particular set of search terms.
