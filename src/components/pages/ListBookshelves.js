@@ -1,7 +1,13 @@
 import React from 'react'
 import Bookshelf from '../Bookshelf'
+import PropTypes from 'prop-types'
 
 class ListBookshelves extends React.Component {
+
+    static propTypes = {
+        books: PropTypes.array.isRequired,
+        onAddBook: PropTypes.func.isRequired
+    }
 
     render() {
         const { books, onAddBook } = this.props;

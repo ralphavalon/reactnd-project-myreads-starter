@@ -1,6 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 class ListBooks extends React.Component {
+  static propTypes = {
+    onCloseSearch: PropTypes.func.isRequired
+  }
 
   render() {
     const { onCloseSearch } = this.props;
