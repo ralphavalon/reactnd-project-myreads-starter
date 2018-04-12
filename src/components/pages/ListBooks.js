@@ -10,15 +10,15 @@ class ListBooks extends React.Component {
   }
 
   updateQuery = (query) => {
-    this.setState({ query: query.trim() })
-    search(query)
+    this.setState({ query: query })
+
+    search(query.trim())
       .then((response) => {
         if(response && Array.isArray(response)) {
           this.setState({ books: response })
         } else {
           this.setState({ books: [] })
         }
-        
       })
   }
 
