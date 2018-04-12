@@ -17,7 +17,7 @@ class Bookshelf extends React.Component {
                     <ol className="books-grid">
                         {books.map((book) => (
                             <li key={book.id}>
-                                <Book title={book.title} image={book.imageLinks.thumbnail} authors={book.authors} />
+                                <Book title={book.title} image={!!book.imageLinks ? book.imageLinks.thumbnail : undefined} authors={book.authors} />
                             </li>
                         ))}
                     </ol>
