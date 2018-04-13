@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { search } from '../../BooksAPI'
-import Book from '../Book'
+import BookList from '../BookList'
 
 class ListBooks extends React.Component {
   state = {
@@ -43,13 +43,7 @@ class ListBooks extends React.Component {
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid">
-            {books.map((book) => (
-                <li key={book.id}>
-                    <Book title={book.title} image={!!book.imageLinks ? book.imageLinks.thumbnail : undefined} authors={book.authors} />
-                </li>
-            ))}
-          </ol>
+          <BookList books={books} />
         </div>
       </div>
     )
