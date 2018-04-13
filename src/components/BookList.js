@@ -9,7 +9,7 @@ class BookList extends React.Component {
     }
     
     render() {
-        const { books, onChangeShelf } = this.props;
+        const { books, onChangeShelf } = this.props
 
         return (
             <ol className="books-grid">
@@ -17,7 +17,7 @@ class BookList extends React.Component {
                     <li key={book.id}>
                         <Book
                             title={book.title}
-                            image={!!book.imageLinks ? book.imageLinks.thumbnail : undefined}
+                            image={!!book.imageLinks ? book.imageLinks.smallThumbnail : undefined}
                             authors={book.authors}
                             shelf={book.shelf}
                             onChangeShelf={(e) => onChangeShelf(book, e.target.value) }/>

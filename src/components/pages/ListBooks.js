@@ -1,12 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { search } from '../../BooksAPI'
 import BookList from '../BookList'
 
 class ListBooks extends React.Component {
+  static propTypes = {
+      onChangeShelf: PropTypes.func
+  }
+
   state = {
     query: '',
-    books: []
+    booksFound: []
   }
 
   updateQuery = (query) => {
@@ -15,15 +20,19 @@ class ListBooks extends React.Component {
     search(query.trim())
       .then((response) => {
         if(response && Array.isArray(response)) {
-          this.setState({ books: response })
+          const { books } = this.props
+          const idsMap = new Map(books.map((book) => [book.id, book]));
+          const booksFound = response.map(book => idsMap.has(book.id) ? idsMap.get(book.id) : book)
+          this.setState({ booksFound: booksFound });
         } else {
-          this.setState({ books: [] })
+          this.setState({ booksFound: [] })
         }
       })
   }
 
   render() {
-    const { query, books } = this.state
+    const { query, booksFound } = this.state
+    const { onChangeShelf } = this.props
 
     return (
       <div className="search-books">
@@ -43,7 +52,7 @@ class ListBooks extends React.Component {
           </div>
         </div>
         <div className="search-books-results">
-          <BookList books={books} />
+          <BookList books={booksFound} onChangeShelf={onChangeShelf} />
         </div>
       </div>
     )

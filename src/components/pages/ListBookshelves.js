@@ -1,29 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import Bookshelf from '../Bookshelf'
-import { getAll, update } from '../../BooksAPI'
 
 class ListBookshelves extends React.Component {
-
-  state = {
-    'books': []
-  }
-
-  componentDidMount() {
-    getAll().then((books) => {
-      this.setState({ books })
-    })
-  }
-
-  onChangeShelf = (book, shelf) => {
-    book.shelf = shelf
-    update(book, shelf).then(() => {
-      this.setState({ books: this.state.books.filter((b) => b.id !== book.id).concat([book]) });
-    })
+  static propTypes = {
+      onChangeShelf: PropTypes.func
   }
 
   render() {
-    const { books } = this.state;
+    const { books, onChangeShelf } = this.props;
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -33,7 +19,7 @@ class ListBookshelves extends React.Component {
           <div>
             <Bookshelf title="Currently Reading" books={books.filter((book) => book.shelf === 'currentlyReading')} onChangeShelf={this.onChangeShelf}/>
             <Bookshelf title="Want to Read" books={books.filter((book) => book.shelf === 'wantToRead')} onChangeShelf={this.onChangeShelf}/>
-            <Bookshelf title="Read" books={books.filter((book) => book.shelf === 'read')} onChangeShelf={this.onChangeShelf}/>
+            <Bookshelf title="Read" books={books.filter((book) => book.shelf === 'read')} onChangeShelf={onChangeShelf}/>
           </div>
         </div>
         <div className="open-search">
