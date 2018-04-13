@@ -17,8 +17,8 @@ class ListBookshelves extends React.Component {
         </div>
         <div className="list-books-content">
           <div>
-            <Bookshelf title="Currently Reading" books={books.filter((book) => book.shelf === 'currentlyReading')} onChangeShelf={this.onChangeShelf}/>
-            <Bookshelf title="Want to Read" books={books.filter((book) => book.shelf === 'wantToRead')} onChangeShelf={this.onChangeShelf}/>
+            <Bookshelf title="Currently Reading" books={books.filter((book) => book.shelf === 'currentlyReading')} onChangeShelf={onChangeShelf}/>
+            <Bookshelf title="Want to Read" books={books.filter((book) => book.shelf === 'wantToRead')} onChangeShelf={onChangeShelf}/>
             <Bookshelf title="Read" books={books.filter((book) => book.shelf === 'read')} onChangeShelf={onChangeShelf}/>
           </div>
         </div>
