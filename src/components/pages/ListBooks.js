@@ -6,7 +6,7 @@ import BookList from '../BookList'
 
 class ListBooks extends React.Component {
   static propTypes = {
-      onChangeShelf: PropTypes.func
+      onChangeShelf: PropTypes.func.isRequired
   }
 
   state = {

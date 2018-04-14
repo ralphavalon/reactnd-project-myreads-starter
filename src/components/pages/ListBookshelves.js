@@ -5,7 +5,7 @@ import Bookshelf from '../Bookshelf'
 
 class ListBookshelves extends React.Component {
   static propTypes = {
-      onChangeShelf: PropTypes.func
+      onChangeShelf: PropTypes.func.isRequired
   }
 
   render() {
