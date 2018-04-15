@@ -19,8 +19,16 @@ To get started developing right away:
 ├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
 ├── public
 │   ├── favicon.ico # React Icon, You may change if you wish.
+│   ├── no_image_found.jpg # Default image when book has no image.
 │   └── index.html # DO NOT MODIFY
 └── src
+    └── components
+        └── pages
+            ├── ListBooks.js # This is the Search Page.
+            ├── ListBookshelves.js # This is the Main Page.
+        ├── Book.js # This represents a Book component.
+        ├── BookList.js # This represents a list of the Book component.
+        ├── Bookshelf.js # This represents a Bookshelf component that has BookList on it.
     ├── App.css # Styles for your app. Feel free to customize this as you desire.
     ├── App.js # This is the root of your app. Contains static HTML right now.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
