@@ -9,7 +9,7 @@ class Book extends React.Component {
         shelf: PropTypes.string,
         authors: PropTypes.array
     }
-    
+
     render() {
         const { title, authors = [], image = "no_image_found.jpg", shelf = "none", onChangeShelf } = this.props;
 

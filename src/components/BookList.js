@@ -7,7 +7,7 @@ class BookList extends React.Component {
         books: PropTypes.array.isRequired,
         onChangeShelf: PropTypes.func.isRequired
     }
-    
+
     render() {
         const { books, onChangeShelf } = this.props
 
@@ -20,7 +20,7 @@ class BookList extends React.Component {
                             image={!!book.imageLinks ? book.imageLinks.smallThumbnail : undefined}
                             authors={book.authors}
                             shelf={book.shelf}
-                            onChangeShelf={(e) => onChangeShelf(book, e.target.value) }/>
+                            onChangeShelf={(e) => onChangeShelf(book, e.target.value)} />
                     </li>
                 ))}
             </ol>
